@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pink Minion ด้วย CSS</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      font-family: Arial, sans-serif;
+    }
+
+    .minion {
+      position: relative;
+      width: 220px;
+      height: 280px;
+    }
+
+    /* หัวกลมสีชมพู */
+    .head {
+      width: 180px;
+      height: 180px;
+      background: #ff99cc; /* สีชมพูหวาน */
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 20px;
+      border: 8px solid #333;
+      box-shadow: inset 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    /* ตาใหญ่ (แบบมินเนี่ยนคลาสสิก) */
+    .eye {
+      position: absolute;
+      background: white;
+      border: 7px solid #333;
+      border-radius: 50%;
+      box-shadow: inset 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .eye-left  { width: 68px; height: 78px; top: 45px; left: 35px; }
+    .eye-right { width: 68px; height: 78px; top: 45px; right: 35px; }
+
+    /* ม่านตา + ไฮไลต์ */
+    .pupil {
+      width: 32px;
+      height: 38px;
+      background: #333;
+      border-radius: 50%;
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      box-shadow: inset -6px -6px 0 #0008;
+    }
+
+    .pupil::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+      top: 6px;
+      left: 10px;
+    }
+
+    /* ปาก (ยิ้มแบบมินเนี่ยน) */
+    .mouth {
+      width: 90px;
+      height: 45px;
+      background: #ff3366;
+      border: 7px solid #333;
+      border-top: none;
+      border-radius: 0 0 80px 80px;
+      position: absolute;
+      top: 110px;
+      left: 65px;
+      overflow: hidden;
+    }
+
+    .mouth::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background: #ff6699;
+      top: -10px;
+      left: 0;
+      border-radius: 50%;
+    }
+
+    /* ตัว (สีชมพูเข้มขึ้นนิด) */
+    .body {
+      width: 180px;
+      height: 160px;
+      background: #ff6699;
+      border: 8px solid #333;
+      border-radius: 50% 50% 40% 40%;
+      position: absolute;
+      top: 140px;
+      left: 20px;
+      z-index: -1;
+    }
+
+    /* กางเกงยีนส์ (แต่เปลี่ยนเป็นสีชมพูอ่อนแทน) */
+    .overalls {
+      width: 160px;
+      height: 90px;
+      background: #ffb3cc;
+      position: absolute;
+      top: 170px;
+      left: 30px;
+      border-radius: 20px;
+      border: 7px solid #333;
+      border-top: none;
+    }
+
+    .strap {
+      position: absolute;
+      width: 28px;
+      height: 70px;
+      background: #ffb3cc;
+      border: 7px solid #333;
+      border-radius: 14px;
+      top: -50px;
+    }
+    .strap-left  { left: 30px; transform: rotate(-15deg); }
+    .strap-right { right: 30px; transform: rotate(15deg); }
+
+    /* ปุ่มกางเกง */
+    .button {
+      width: 18px;
+      height: 18px;
+      background: #ff3366;
+      border: 4px solid #333;
+      border-radius: 50%;
+      position: absolute;
+      top: 25px;
+    }
+    .button-left  { left: 50px; }
+    .button-right { right: 50px; }
+
+    /* แขน */
+    .arm {
+      width: 50px;
+      height: 110px;
+      background: #ff99cc;
+      border: 7px solid #333;
+      border-radius: 25px;
+      position: absolute;
+      top: 160px;
+    }
+    .arm-left  { left: -30px; transform: rotate(-25deg); }
+    .arm-right { right: -30px; transform: rotate(25deg); }
+
+    /* มือ */
+    .hand {
+      width: 44px;
+      height: 44px;
+      background: #ff6699;
+      border: 7px solid #333;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -20px;
+      left: 3px;
+    }
+
+    /* ขา */
+    .leg {
+      width: 60px;
+      height: 80px;
+      background: #333;
+      position: absolute;
+      bottom: -20px;
+      border-radius: 30px 30px 0 0;
+    }
+    .leg-left  { left: 40px; }
+    .leg-right { right: 40px; }
+
+    /* รองเท้า */
+    .shoe {
+      width: 80px;
+      height: 40px;
+      background: #222;
+      border: 7px solid #000;
+      border-radius: 40px;
+      position: absolute;
+      bottom: -40px;
+      left: -10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="minion">
+    <div class="head">
+      <div class="eye eye-left"><div class="pupil"></div></div>
+      <div class="eye eye-right"><div class="pupil"></div></div>
+      <div class="mouth"></div>
+    </div>
+
+    <div class="body">
+      <div class="overalls">
+        <div class="strap strap-left"></div>
+        <div class="strap strap-right"></div>
+        <div class="button button-left"></div>
+        <div class="button button-right"></div>
+      </div>
+    </div>
+
+    <div class="arm arm-left"><div class="hand"></div></div>
+    <div class="arm arm-right"><div class="hand"></div></div>
+
+    <div class="leg leg-left"><div class="shoe"></div></div>
+    <div class="leg leg-right"><div class="shoe"></div></div>
+  </div>
+
+</body>
+</html>
